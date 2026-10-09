@@ -2,3 +2,6 @@
 This is the first GitHub repository created for the course STAT 107 taught by Prof. Jose Sanchez Gomez and Zhuo Huang.
 
 This is my first commit in this repository
+
+Commit complete by Diego Regules
+
