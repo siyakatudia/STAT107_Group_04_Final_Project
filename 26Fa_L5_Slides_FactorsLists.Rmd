@@ -1,0 +1,414 @@
+---
+title: "STAT 107"
+author: "Jose Sanchez Gomez, PhD"
+output:
+  ioslides_presentation:
+    incremental: true
+  widescreen: true
+  beamer_presentation:
+    incremental: true
+subtitle: Factors and Lists
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE)
+```
+
+```{=html}
+<style>
+  slides slide { background-image: none; }
+</style>
+```
+
+```{=html}
+<style>
+  .forceBreak { -webkit-column-break-after: always; break-after: column; }
+</style>
+```
+
+```{=html}
+<style type="text/css">
+  .tiny {
+  font-size: 12pt;
+  line-height: 1em;
+}
+</style>
+```
+
+# Review of Last Class
+
+## Composite objects {.build}
+
+-   Vectors: 1D lists of objects.
+
+-   Matrices: 2D arrays of objects.
+
+-   Data frames: 2D arrays of objects.
+
+## Operations in Matrices {.build}
+
+-   Just as vectors, matrix operations are "vectorized" (done entrywise)
+
+```{r}
+mat <- matrix(c(1:6), ncol = 3, nrow = 2)
+mat * mat
+mat > 3
+```
+
+## Matrix Operations
+
+Matrix multiplication $AB = A \cdot B$:
+
+```{r}
+A <- matrix(rnorm(12), nrow = 4, ncol = 3)
+B <- matrix(rnorm(15), nrow = 3, ncol = 5)
+A %*% B
+```
+
+-   Detail: if $A_{m\times n}$ and $B_{n\times k}$ then $C = A \cdot B$ is a $C_{m\times k}$ matrix.
+
+-   The dimensions of $A$ and $B$ must match for the multiplication to be possible.
+
+## Matrix Operations
+
+Transpose of a matrix:
+
+```{r}
+recMat <- matrix(c(1,2,3,4,5,6), ncol = 2)
+recMat
+t(recMat)
+```
+
+## Matrix Operations {.build}
+
+Solve a square linear system of equations $A x = b$: $$
+\begin{cases}
+  A_{11} x_{1} + \ldots A_{1n} x_{n} &= b_{1} \\
+  & \vdots \\
+  A_{n1} x_{1} + \ldots A_{nn} x_{n} &= b_{n} 
+\end{cases} \iff
+$$ $$
+\begin{bmatrix}
+  A_{11} & A_{12} & \ldots & A_{1n} \\
+  A_{21} & A_{22} & \ldots & A_{2n} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  A_{n1} & A_{n2} & \ldots & A_{nn}
+\end{bmatrix} \begin{bmatrix}
+  x_{1} \\ x_{2} \\ \vdots \\ x_{n}
+\end{bmatrix}
+= \begin{bmatrix}
+  b_{1} \\ b_{2} \\ \vdots \\ b_{n}
+\end{bmatrix} \iff A x = b
+$$ - We can use `solve(A,b)` to recover the value of $x$ in R.
+
+## Matrix Inverse {.build}
+
+-   Goal: solve $x$ in $Ax = b$, Intuitively, $x = (A)^{-1}b$.
+
+-   `solve(A,b)` solves $x$; `solve(A)` returns matrix $(A)^{-1}$.
+
+```{r}
+A   <- matrix(c(3, 0, 0, 1, 2, 0, 0, 1, -1), 
+              ncol = 3, nrow = 3, byrow = TRUE)
+Ainv <- solve(A)
+Ainv
+```
+
+-   $A^{-1}\cdot A \cdot x = A\cdot A^{-1} \cdot x = x$. *Cancels A*.
+
+-   Hint: this is Useful in HW2.
+
+## Data Frame {.build}
+
+-   A data frame is a 2D array which allows for different types.
+-   **Condition:** same type per column.
+-   Create with the `data.frame()` function.
+
+```{r}
+age <- c(1, 8, 10, 30, 31)
+gender <- c("Female", "Female", "Male", "Female", "Male")
+married <- c(FALSE, FALSE, FALSE, TRUE, TRUE)
+simpsons <- data.frame(age, gender, married)
+simpsons
+```
+
+## Factor {.build}
+
+-   **Factor** *vectors* (1D object) in R, are used to model categorical data.
+
+-   Examples:
+
+    -   grades (A, B, C,...),
+    -   gender (M, F, NB, ND),
+    -   Pokemon type (wind, fighter, dragon, ...)
+    -   Movie ratings (1, 2, 3, 4, 5)
+
+-   Attributes: `levels`, `labels`.
+
+# Factors
+
+## Factor
+
+**Factor** objects, considered *vectors* (1D object) in R, are used to model categorical data.
+
+**Example**: A survey of 7 people asked to identify their hair color
+
+```{r}
+hair <- c("Blonde", "Black", "Black", "Red", "Blonde", "Brown",
+          "Black")
+hair_factor <- factor(hair)
+hair_factor
+levels(hair_factor)
+```
+
+## Adding `levels` Manually
+
+Use the `levels` argument (mind the `=`) to specify the space of possible values:
+
+```{r}
+directions_f <- factor(c("North", "West", "North", 
+                         "East", "North", "West",
+                         "East"), 
+                       levels = c("North", "East", "South", "West"))
+directions_f
+```
+
+## Ordered Factor {.build}
+
+-   Sometimes discrete data has some kind of natural order between elements:
+
+-Sport results: `loss < tie < win`
+
+-   Surveys: `strongly disagree < disagree < neutral < agree < strongly agree.`
+
+These are known as ordinal data.
+
+## Ordered Factor
+
+The `ordered` argument can be used to indicate data are ordinal (lowest to highest):
+
+```{r}
+record <- c("win", "tie", "loss", "tie", "loss", "win", "win")
+record_f <- factor(record, 
+                   levels = c("loss", "tie", "win"),
+                   ordered = TRUE)
+record_f
+```
+
+-   If order not specified, it will use *lexicographic order*.
+
+## Factors -- Common Interface {.build}
+
+Factors
+
+-   have a notion of `length`,
+-   can be coerced via `as.factor`,
+-   can be checked via `is.factor`,
+-   can be accessed with *indexing* syntax, and
+-   can be assigned *named* components.
+
+### `factor` objects are `vector` objects
+
+## Factors with Names {.build}
+
+-   Just as with vectors, we can assign names to the entries of a `factor` vector.
+
+```{r}
+named1 <- c(sally = "win", tom = "win", ed = "lost", jane = "tie")
+named1 <- factor(named1)
+
+named1
+```
+
+## Dropping Unused Levels {.build}
+
+You can drop levels from both `factor` and `ordered`:
+
+Example: there may be a sport where no ties are possible.
+
+```{r}
+record_f <- factor(c("Win", "Win", "Loss", "Win"), 
+                   levels = c("Loss", "Tie", "Win"))
+record_f
+droplevels(record_f)
+```
+
+## Summarizing (Factor) Data {.build}
+
+For factor objects, we can calculate a *frequency table* with `table()`
+
+```{r}
+user_ratings_f <- factor(c(7, 10, 10, 10, 8, 10, 2, 10, 2, 10, 5),
+                         levels = 1:10,
+                         ordered = TRUE)
+table(user_ratings_f)
+```
+
+## Tabulating Data {.build}
+
+You can also construct two-way tables with multiple `factor` objects:
+
+```{r}
+## Age/disease data of patients
+disease_state <- factor(c("Y", "N", "Y", "Y", "N", "N", "N"))
+age_range <- ordered(
+  c("0-18", "0-18", "0-18", "19-31", "19-31", "19-31", "19-31"),
+  levels <- c("0-18", "19-31", ">=32"))
+disease_df <- data.frame(disease_state, age_range)
+
+head(disease_df, 4)
+```
+
+## Tabulating Data {.build}
+
+You can also construct two-way tables with multiple `factor` objects:
+
+```{r}
+table(age_range, disease_state)
+```
+
+# Lists
+
+## The List Object {.build}
+
+-   Vectors: 1D lists of objects. SAME TYPE.
+
+-   Matrices: 2D arrays of objects. SAME TYPE.
+
+-   Data frames: 2D arrays of objects. Columns of uniform type.
+
+-   List: 1D sequence of objects. NO TYPE CONSTRAINTS.
+
+## Compact Summary of Lists {.build}
+
+We create lists objects with `list()`:
+
+```{r}
+myList <- list(90210, "Beverly Hills", "CA")
+myList
+```
+
+## Compact Summary of Lists {.build}
+
+`str()` gives a more detailed but compact summary:
+
+```{r}
+myList <- list(90210, "Beverly Hills", "CA")
+str(myList)
+```
+
+## Lists -- Common Interface {.build}
+
+Lists
+
+-   have a notion of `length`,
+-   can be coerced via `as.list`,
+-   can be checked via `is.list`,
+-   can be accessed with *indexing* syntax, and
+-   can be assigned *named* components.
+
+## Lists: coercion
+
+Coercion of `numeric` vector to `list`:
+
+```{r}
+num_list <- as.list(c(1,2,3))
+num_list
+```
+
+## Lists -- Common Interface
+
+The `unlist()` function converts to a *vector*:
+
+```{r}
+unlist(num_list)
+```
+
+## Named lists
+
+Naming works as expected
+
+```{r}
+lst <- list(first = "Abraham", last = "Lincoln",
+        born = 1809L, died = 1865L)
+lst
+```
+
+## Flexibility of lists
+
+The element of a list can be **anything**: atomic, vectors, even lists!
+
+```{r}
+nestedList <- list(first   = "Jose",
+                   last    = "Sanchez Gomez",
+                   courses = c("STAT107", "STAT 155", "STAT 293"))
+str(nestedList)
+```
+
+## Indexing with Double Bracket {.build}
+
+-   To access specific values, we use `[[]]`. We can also access by `list$name` notation:
+
+```{r}
+nestedList[[3]]
+nestedList$courses
+```
+
+## Indexing with Double Bracket {.build}
+
+When we use double bracket, we are extracting the *"value inside the position"*.
+
+```{r}
+print(typeof(nestedList[[3]]))
+```
+
+## Subsetting lists {.build}
+
+Similar to vectors, we can also subset lists with single bracket `[]`.
+
+The result is also a list object:
+
+```{r}
+sublist <- nestedList[c(1,2)]
+str(sublist)
+```
+
+```{r}
+sublist <- nestedList[-3]
+str(sublist)
+```
+
+## Subsetting lists {.build}
+
+-   Double bracket `[[]]`: access the object inside the index.
+
+-   Single bracket `[]`: subsetting lists. Output is a list object.
+
+```{r}
+typeof(nestedList[[1]])
+typeof(nestedList[1])
+
+nestedList[1]
+```
+
+## Summary
+
+CA5 on canvas.
+
+Passcode: List08
+
+## Summary {.build}
+
+-   Atomic types: `integer`, `double`, `logical`, `character`.
+
+-   1D composite objects: `vector`, `list`, and `factor`.
+
+    -   For vectors, `[]` for all indexing.
+
+    -   For lists, `[[]]` or `list$name` for accessing elements; subsetting lists with `[]`.
+
+-   2D composite objects: `list`, `matrix`.
+
+    -   Access entries with `[, ]`.
+
+    -   For data.frames, by name: `df$name`.
