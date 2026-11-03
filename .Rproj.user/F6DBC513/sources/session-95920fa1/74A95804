@@ -3,25 +3,25 @@
     "path": "~/Library/Mobile Documents/com~apple~CloudDocs/stat 107/STAT107_DA3_Katudia_Siya_MyFirstRepository/11_DataCleaning.Rmd",
     "project_path": "11_DataCleaning.Rmd",
     "type": "r_markdown",
-    "hash": "3805459774",
+    "hash": "683091302",
     "contents": "",
     "dirty": false,
     "created": 1793669562320.0,
     "source_on_save": false,
-    "relative_order": 8,
+    "relative_order": 6,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "67,0",
-        "scrollLine": "58",
-        "last_setup_crc32": "95920fa1740d1c70"
+        "cursorPosition": "9,35",
+        "scrollLine": "4",
+        "last_setup_crc32": "95920fa1ea9803f"
     },
     "folds": "",
-    "lastKnownWriteTime": 1793686075,
+    "lastKnownWriteTime": 1793688008,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1793686075726,
+    "last_content_update": 1793688008150,
     "read_only": false,
     "read_only_alternatives": []
 }

@@ -5,6 +5,9 @@ output: html_document
 ---
 ```{r setup, message=FALSE, warning=FALSE}
 library(tidyverse)
+
+#loading reuseable cleaning functions 
+source("R./01_funct_DataCleaning.R")
 ```
 
 # Importing the SCF datasets 
@@ -66,6 +69,18 @@ dim(dfa_shares_detail)
 ```
 
 
+#checking for missing values and duplicates 
+```{r}
+all_datasets <- list(scf_have = scf_have, scf_mean = scf_mean, scf_median = scf_median, dfa_levels = dfa_levels, dfa_levels_detail = dfa_levels_detail, dfa_shares = dfa_shares, dfa_shares_detail = dfa_shares_detail)
+
+```
+
+
+#checking for missing values and duplicates 
+```{r}
+lapply(all_datasets, check_missing)
+check_duplicates
+```
 
 
 
