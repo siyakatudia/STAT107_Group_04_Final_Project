@@ -1,0 +1,7 @@
+"0","dfa_levels <- read_csv(""Data/Raw/DFA/dfa-race-levels.csv"")"
+"0",""
+"0","dfa_levels_detail <- read_csv(""Data/Raw/DFA/dfa-race-levels-detail.csv"")"
+"0",""
+"0","dfa_shares <- read_csv(""Data/Raw/DFA/dfa-race-shares.csv"")"
+"0",""
+"0","dfa_shares_detail <- read_csv(""Data/Raw/DFA/dfa-race-shares-detail.csv"")"

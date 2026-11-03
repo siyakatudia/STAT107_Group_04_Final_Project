@@ -7,7 +7,7 @@ output: html_document
 library(tidyverse)
 
 #loading reuseable cleaning functions 
-source("R./01_funct_DataCleaning.R")
+source("R/01_funct_DataCleaning.R")
 ```
 
 # Importing the SCF datasets 
@@ -79,9 +79,40 @@ all_datasets <- list(scf_have = scf_have, scf_mean = scf_mean, scf_median = scf_
 #checking for missing values and duplicates 
 ```{r}
 lapply(all_datasets, check_missing)
-check_duplicates
+
+
 ```
 
 
+```{r}
+check_duplicates(scf_have, c("year", "Category"))
+check_duplicates(scf_mean, c("year", "Category"))
+check_duplicates(scf_median, c("year", "Category"))
+
+check_duplicates(dfa_levels, c("Date", "Category"))
+check_duplicates(dfa_levels_detail, c("Date", "Category"))
+check_duplicates(dfa_shares, c("Date", "Category"))
+check_duplicates(dfa_shares_detail, c("Date", "Category"))
+```
+
+```{r}
+lapply(all_datasets, check_categories)
+```
+
+
+# checking the years and dates on the datasets 
+```{r}
+sort(unique(scf_have$year))
+sort(unique(scf_mean$year))
+sort(unique(scf_median$year))
+
+sort(unique(dfa_levels$Date))
+sort(unique(dfa_levels_detail$Date))
+sort(unique(dfa_shares$Date))
+sort(unique(dfa_shares_detail$Date))
+
+
+
+```
 
 
