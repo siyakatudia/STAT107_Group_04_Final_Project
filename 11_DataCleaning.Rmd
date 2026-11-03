@@ -1,5 +1,72 @@
 ---
-title: "Data Cleaning"
+title: "Data Cleaning and Preperation"
+author: "Siya Katudia"
 output: html_document
 ---
+```{r setup, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+# Importing the SCF datasets 
+
+```{r}
+scf_have <- read.csv("Data/Raw/SCF/interactive_bulletin_charts_racecl4_have.csv")
+
+scf_mean <- read_csv("Data/Raw/SCF/interactive_bulletin_charts_racecl4_mean.csv")
+
+scf_median <- read_csv("Data/Raw/SCF/interactive_bulletin_charts_racecl4_median.csv")
+```
+
+
+#Importing the dfa datasets 
+
+```{r}
+dfa_levels <- read_csv("Data/Raw/DFA/dfa-race-levels.csv")
+
+dfa_levels_detail <- read_csv("Data/Raw/DFA/dfa-race-levels-detail.csv")
+
+dfa_shares <- read_csv("Data/Raw/DFA/dfa-race-shares.csv")
+
+dfa_shares_detail <- read_csv("Data/Raw/DFA/dfa-race-shares-detail.csv")
+```
+
+
+# Understanding the datasets 
+
+#examining scf datasets 
+```{r}
+glimpse(scf_have)
+glimpse(scf_mean)
+glimpse(scf_median)
+
+```
+#checking the dimensions 
+```{r}
+dim(scf_have)
+dim(scf_mean)
+dim(scf_median)
+```
+
+
+#examining dfa datasets 
+```{r}
+glimpse(dfa_levels)
+glimpse(dfa_levels_detail)
+glimpse(dfa_shares)
+glimpse(dfa_shares_detail)
+
+```
+#checking the dimensions 
+```{r}
+dim(dfa_levels)
+dim(dfa_levels_detail)
+dim(dfa_shares)
+dim(dfa_shares_detail)
+
+```
+
+
+
+
+
 
