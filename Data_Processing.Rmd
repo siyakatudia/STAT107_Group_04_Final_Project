@@ -1,1 +1,48 @@
-# data processing code to be done here
+---
+title: "Data Processing Code and Functions"
+author: "Diego R"
+date: "2026-11-04"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Purpose
+
+The purpose of the following code is to process the cleaned data (by Siya and Mateo) into relevant data frames that can be used to help us answer our research question. Each R chunk is named by what the chunk's task is either by the header or inside the R chunk's header.
+
+## Cleaned Data Import
+
+```{r CDI}
+# Cleaned data sets shall be imported in this chunk
+
+# IMPORT BEFORE STARTING DATA PROCESSING
+
+```
+
+## Processing Code
+
+```{r}
+
+# Processed code shall be relevant towards the argument(s) we have made: 
+
+#' The argument(s)/research question(s) that the team has made is:
+#' 1. Is there a racial wealth gap?
+#'  a. If so, can the racial wealth gap be attested towards educational accesibility?
+#'  b. If there is no racial wealth gap, can the improvement of the gap be attested towards
+#'      improved educational accesibility?
+#'  
+#'  Some things to consider:
+#'    1. How will the racial wealth gap, if any, be determined with the data collected?
+#'      e.g: total family income, single income, total expenses, credit card debt, net worth,
+#'          , total amount of debt, bills/payments, ...
+#'        (I suggest to choose 3 to 4 factors to represent the racial wealth gap (if any) )
+#'    2. Is additional data collected relevant towards educational accesibility? 
+#'        a. How does accessibility differ from state to state within the U.S? 
+#'        b. Can other factors in different states such as economy and political standing 
+#'          shape such opportunities?
+```
