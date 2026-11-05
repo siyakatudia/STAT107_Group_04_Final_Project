@@ -43,7 +43,7 @@ boxplot(net_worth_thousands ~ dfa_levels$Category, xlab = "Race", ylab = "Total 
 
 
 ## Analysis:
-As seen in both boxplots above, the average income per race is consistent throughout the 13-14 examined years. People who identified as White, non-Hispanic, or simply White, constantly earned more than other races. This information is sufficient to prove there is a racial weath gap in the United States of America
+As seen in both boxplots above, the average income per race is consistent throughout the 13-14 examined years. People who identified as White, non-Hispanic, or simply White, constantly earned more than other races. This information is sufficient to prove there is a racial wealth gap in the United States of America. But it can also be viewed by comparing other factors. For example, comparing Net Worth and Assets from the SCF data set as well as comparing Assets in the DFA data set. 
 
 
 
