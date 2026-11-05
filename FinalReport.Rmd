@@ -1,5 +1,54 @@
 ---
-title: "FinalReport"
-output: html_document
+title: "Final Report"
+author: "Diego R, Siya, Mateo"
+date: "2026-11-04"
+output:
+  pdf_document: default
+  html_document: default
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Abstract
+
+Give a title to your project. In an abstract of 200 words or less, describe what is the main question you aim to answer, and a brief summary of your current results.
+
+Our team's research question aims to determine a general relationship between educational accessibility and the racial wealth gap in recent years. Has the racial wealth gap experienced improvement over the past decades? 5 Decades? Century? Can this improvement or widening be attested to the access and opportunity that people of different races have to education? (Elementery, Middle, High, Undergraduate and graduate school, PhD programs, etc.) Our current findings show that...
+
+-\> (Data processing and visualization must be complete to summarize current results) \<-
+
+(This is a preliminary abstract. Im very sure that this can be improved on alot)
+
+## Introduction
+
+What is the central question that motivates your analysis? Who may this analysis benefit? Are you trying to train a model, test a hypothesis, classify objects apart? Why? This has to be written with proper grammar and syntax: sentences, paragraphs, and a narrative structure.
+
+The basis of what we are attempting to research is to determine the cause and potential improvement of the racial wealth gap throughout the United States. Specifically, we want to determine if there is any relationship between the racial wealth gap and educational accessibility throughout recent years.
+
+We believe conducting research into this topic will assist in determining future decisions regarding educational needs and allocation of government spending to potentially provide assistance to those in a lower income bracket to have a better opportunity to get the education they need for themselves and, if in families, their children.
+
+(Also preliminary)
+
+## Executive Summary
+
+in bullet points ( 3 to 5), summarize core conclusions and findings of analysis thus far
+
+(Data processing and visualization must be complete to answer) \<-
+
+## Data
+
+What is the data available for performing the analysis? Where did you retrieve these data from? What are the variables and number of observations available? What steps where performed to clean the data? If the data is obtained via randomized simulations, clarify the data generating procedure.
+
+## Visualization
+
+Provide preliminary visualizations in the form of histograms, density plots, scatter plots, box-plots, and numerical summaries of the data, depending on the type of analysis. What do these visualizations suggest about the hypothesis, model or simulation you are aiming to perform? If you aim to generate further data visualizations, describe them here.
+
+(Data processing and visualization must be complete to answer) \<-
+
+## Analysis
+
+Provide some preliminary plans of what analysis you aim to complete. Mention models, tests, procedures, and some ideas of what expected outcomes you hope to find
+
+(Data processing and visualization must be complete to answer) \<-
