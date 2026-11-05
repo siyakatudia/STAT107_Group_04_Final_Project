@@ -1,6 +1,0 @@
----
-title: "31_DataVisualization"
-output: html_document
-to be done by mateo
----
-
