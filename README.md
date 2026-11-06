@@ -1,7 +1,9 @@
-# STAT107_DA3_Katudia_Siya_MyFirstRepository
+# STAT107_ GROUP04_FINAL_PROJECT
 
-This is the first GitHub repository created for the course STAT 107 taught by Prof. Jose Sanchez Gomez and Zhuo Huang.
+This is the GitHub repository created for the course STAT 107 taught by Prof. Jose Sanchez Gomez and Zhuo Huang.
 
-This is my first commit in this repository
-
-This text was writen locally, and will be commited through GitHub Desktop
+This is the repository created for the final project for group 4.
+Members:
+Siya Katudia,
+Mateo Sandoval,
+Diego Regules,
