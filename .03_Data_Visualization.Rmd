@@ -34,7 +34,7 @@ dfa_race_boxplot <- function(dfa_comparison_factor, race_category = dfa_levels$C
 Visualization of the necessary data taken from the raw data sets. Utilizing plots and graphs. 
 
 ## Required:
-Imported data from 11_DataCleaning.Rmd file.
+Imported data from .01_DataCleaning.Rmd file.
 
 
 ## Viewing the SCF data set:
