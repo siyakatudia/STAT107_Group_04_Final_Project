@@ -18,6 +18,7 @@ Give a title to your project. In an abstract of 200 words or less, describe what
 Our team's research question aims to determine a general relationship between educational accessibility and the racial wealth gap in recent years. Has the racial wealth gap experienced improvement over the past decades? 5 Decades? Century? Can this improvement or widening be attested to the access and opportunity that people of different races have to education? (Elementery, Middle, High, Undergraduate and graduate school, PhD programs, etc.) Our current findings show that...
 
 -\> (Data processing and visualization must be complete to summarize current results) \<-
+ - Data visualization currently shows that there is a significant financial wealth gap, with people who are categorized as White consistently earning more than any other race. This was viewed by comparing Net Worth and Racial Categories in both data sets separately, then comparing visually. 
 
 (This is a preliminary abstract. Im very sure that this can be improved on alot)
 
@@ -36,19 +37,29 @@ We believe conducting research into this topic will assist in determining future
 in bullet points ( 3 to 5), summarize core conclusions and findings of analysis thus far
 
 (Data processing and visualization must be complete to answer) \<-
+  - Data visualization shows the general wealth gap between the different racial categories, with White people earning more over the years observed
+  - Both data sets show the wealth gap through overall net worth between races, and can the graph can be adjusted to compare racial categories to other financial factors
 
 ## Data
 
 What is the data available for performing the analysis? Where did you retrieve these data from? What are the variables and number of observations available? What steps where performed to clean the data? If the data is obtained via randomized simulations, clarify the data generating procedure.
 
+The data we are using comes from the United States Federal Reserve Board, downloaded from the offical website at https://www.federalreserve.gov/releases/z1/dataviz/dfa/index.html? (DFA) and https://www.federalreserve.gov/econres/scfindex.htm? (SCF). The DFA data set contains information from the Distributional Financial Accounts, tracked by the Federal Reserve. The SCF data set contains information from the Survey of Consumer Finances, collected by the Federal Reserve. The downloadable file for both are folders containing multiple data sets. The SCF folder contains 31 separate files and the DFA folder contains 27 separate files. As part of our projet, we will be loading singluar files into the workspace as needed to view the data. 
+
+-> Need to add the steps performed to clean the data <- 
+
 ## Visualization
 
 Provide preliminary visualizations in the form of histograms, density plots, scatter plots, box-plots, and numerical summaries of the data, depending on the type of analysis. What do these visualizations suggest about the hypothesis, model or simulation you are aiming to perform? If you aim to generate further data visualizations, describe them here.
+
+For the current visualizations, we compared racial categories and net worth, as well as income before taxes. Using a boxplot, we could see that throughout the years analyzed, white people earned more than any other race. Though this is just a view of net worth compared to race, we can infer that there is a consistent racial wealth gap. For the next steps of our project, we can compare other financial categories to race, like debts and assets. Other future plans include making graphs to view the levels of education achieved by the racial categories we are examining to view how educational accessibility in the past could have contributed to the wealth gap.  
 
 (Data processing and visualization must be complete to answer) \<-
 
 ## Analysis
 
 Provide some preliminary plans of what analysis you aim to complete. Mention models, tests, procedures, and some ideas of what expected outcomes you hope to find
+
+
 
 (Data processing and visualization must be complete to answer) \<-
