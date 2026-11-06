@@ -1,6 +1,194 @@
 ---
-title: "31_DataVisualization"
+title: "Data Visualization"
+author: "Mateo Sandoval and Siya Katudia "
+date: "2026-11-05"
 output: html_document
-to be done by mateo
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+
+load("Data/Processed/12_DataSaving.RData")
+load("Data/Processed/22_DataSaving.RData")
+
+source("R/02_funct_Plots.R")
+```
+
+### PLOT FUNCTIONS DEFINED BELOW: WILL BE ADDED IN A SEPARATE FILE ON GITHUB ONCE I FIGURE OUT WHY I'M HAVING TROUBLE CLONING THE REPOSITORY AND PUSHING LOCAL COMMITS.
+
+```{r}
+## Colors according to different categories of race:
+color_cord <- c("lightblue1", "pink1", "yellow","lightgreen" )
+# Green = White / White, non-Hispanic
+# Blue = Black / Black, non-Hispanic
+# Pink = Hispanic
+# Yellow = Other
+
+## Plot Functions (defaulted to work with scf_mean and dfa_levels. can be adjusted for the other data sets by specifying where the race category will be coming from (ex: scf_median$Category, dfa_shares_$Category, etc.))
+
+scf_race_boxplot <- function(scf_comparison_factor, race_category = scf_mean$Category){
+  boxplot(scf_comparison_factor ~ race_category, col = color_cord, xlab = NULL, ylab = NULL)
+}
+
+dfa_race_boxplot <- function(dfa_comparison_factor, race_category = dfa_levels$Category){
+  boxplot(dfa_comparison_factor ~ race_category, col = color_cord, xlab = NULL, ylab = NULL)
+}
+```
+
+## Purpose:
+
+Visualization of the necessary data taken from the raw data sets. Utilizing plots and graphs.
+
+## Required:
+
+Imported data from 11_DataCleaning.Rmd file.
+
+## Viewing the SCF data set:
+
+```{r}
+
+## Boxplot showing the average before tax income divided into four categories: White non-Hispanic, Black non-Hispanic, Hispanic, Other
+
+scf_race_boxplot(scf_mean$Before_Tax_Income)
+title(main = "Before Tax Income vs Race (1989-2025)", xlab = "Race", ylab = "Before Tax Income (in Thousands USD)")
+
+```
+
+## Viewing the DFA data set:
+
+```{r}
+
+## Initial boxplot showing overall net worth per race divided into four categories: White, Black, Hispanic, Other
+
+dfa_race_boxplot(dfa_levels$`Net worth`)
+title(xlab = "Race", ylab = "Total Net Worth (USD)", main = "Total Net Worth vs Race (1989-2026)")
+
+## New boxplot with Total Net Worth in thousands USD
+
+net_worth_thousands <- dfa_levels$`Net worth` / 1000
+
+dfa_race_boxplot(net_worth_thousands)
+title(xlab = "Race", ylab = "Total Net Worth (in Thousands USD)", main = "Total Net Worth vs Race (1989-2026)")
+
+```
+
+## Initial Analysis:
+
+As seen in both boxplots above, the average income per race is consistent throughout the 13-14 examined years. People who identified as White, non-Hispanic, or simply White, constantly earned more than other races. This information is sufficient to prove there is a racial wealth gap in the United States of America. But it can also be viewed by comparing other factors. For example, comparing Net Worth and Assets from the SCF data set as well as comparing Assets in the DFA data set.
+
+## Further Financial Analysis:
+
+```{r}
+# To compare more directly, we can view Net Worth in the scf data set and compare it directly with the dfa boxplot graph:
+
+scf_race_boxplot(scf_mean$Net_Worth)
+title(main = "Net Worth vs Race (1989-2025)", xlab = "Race", ylab = "Net Worth (in Thousands USD)")
+```
+
+## Further Financial Analysis (Cont.):
+
+By comparing the Net Worth of both data sets, we can gather evidence to further support the claim that there is a racial wealth gap. The SCF data set (Survey of Consumer Finances) and the DFA data set (Distributional Financial Accounts) both show that overall, people who identified as White have a higher net worth than every other race.
+
+## Education by Race:
+
+```{r}
+## Part 2: will include viewing education levels per race (requires education files from the scf and dfa data sets to be cleaned and brought into the workspace) (will also require new functions to view plots or a rework of the current functions to work for other data sets)
+```
+
+## Analyzing net worth by race:
+
+```{r}
+networth_data <- bind_rows(Black = prepare_plot_data(netWorthAvgBlack), Hispanic = prepare_plot_data(netWorthAvgHispanic), White = prepare_plot_data(netWorthAvgWhite), Other = prepare_plot_data(netWorthAvgOther), .id = "Race")
+
+plot_group_trend(networth_data, "Net Worth Over Time by Race", "Net Worth")
+
+plot_group_boxplot(networth_data, "Distribution of Net Worth by Race", "Net Worth")
+```
+
+## Analyzing debt by race 
+
+```{r}
+debt_data <- bind_rows( Black = prepare_plot_data(totDebtBlack), Hispanic = prepare_plot_data(totDebtHispanic), White = prepare_plot_data(totDebtWhite), Other = prepare_plot_data(totDebtOther), .id = "Race")
+
+plot_group_trend(networth_data, "Debt Over Time by Race", "Debt")
+
+plot_group_boxplot(networth_data, "Distribution of Debt by Race", "Debt")
+```
+
+## Analyzing Retirement Account by race 
+
+```{r}
+retirement_data <- bind_rows(Black = prepare_plot_data(rtrmAccValueBlack), Hispanic = prepare_plot_data(rtrmAccValHispanic), White = prepare_plot_data(rtrmAccValueWhite), Other = prepare_plot_data(rtrmAccValueOther), .id = "Race")
+
+plot_group_trend(networth_data, "Retirement Account Value Over Time by Race", "Retirement Account Value")
+
+plot_group_boxplot(networth_data, "Distribution of Retirement Account Value by Race", "Retirement Account Value")
+```
+
+## Analyzing Financial Assets by race
+
+```{r}
+financial_assets_data <- bind_rows(Black = prepare_plot_data(finAssetsBlack), Hispanic = prepare_plot_data(finAssetsHispanic), White = prepare_plot_data(finAssetsWhite), Other = prepare_plot_data(finAssetsOther), .id = "Race")
+
+plot_group_trend(networth_data, "Financial Assets Value Over Time by Race", "Financial Assets")
+
+plot_group_boxplot(networth_data, "Distribution of Financial Assets by Race", "Financial Assets")
+```
+
+##  
+
+## Analyzing Liabilities by race
+
+```{r}
+liabilities_data <- bind_rows(Black = prepare_plot_data(liabBlack), Hispanic = prepare_plot_data(liabHispanic), White = prepare_plot_data(liabWhite), Other = prepare_plot_data(liabOther), .id = "Race")
+
+plot_group_trend(networth_data, "Liabilities Value Over Time by Race", "Liabilities")
+
+plot_group_boxplot(networth_data, "Distribution of Liabilities by Race", "Liabilities")
+```
+
+## Analyzing Net Worth by Education level 
+
+```{r}
+education_networth <- bind_rows(`No High School Diploma` = prepare_plot_data(netWorthNoHsDp),`High School Diploma` = prepare_plot_data(netWorthHsDp), `Some College` = prepare_plot_data(netWorthSmCllg), `College Degree` = prepare_plot_data(netWorthCllgDg), .id = "Education")
+
+
+plot_group_trend( education_networth, "Net Worth Over Time by Education Level", "Net Worth", "Education Level")
+
+
+plot_group_boxplot( education_networth, "Distribution of Net Worth by Education Level","Net Worth", "Education Level")
+```
+
+## Analyzing Retirement Account Value  by Education level 
+
+```{r}
+retirement_education <- bind_rows(`No High School Diploma` = prepare_plot_data(rtrmAccValNoHsDp), `High School Diploma` = prepare_plot_data(rtrmAccValHsDp), `Some College` = prepare_plot_data(rtrmAccValSmCllg), `College Degree` = prepare_plot_data(rtrmAccValCllgDg), .id = "Education")
+
+plot_group_trend(retirement_education, "Retirement Account Value Over Time by Education Level", "Retirement Account Value", "Education Level")
+```
+
+## Analyzing Debt by Education level 
+
+```{r}
+debt_education <- bind_rows(`No High School Diploma` = prepare_plot_data(totDebtNoHsDp), `High School Diploma` = prepare_plot_data(totDebtHsDp), `Some College` = prepare_plot_data(totDebtSmCllg), `College Degree` = prepare_plot_data(totDebtCllgDg), .id = "Education")
+
+plot_group_trend(debt_education, "Debt Over Time by Education Level", "Debt", "Education Level")
+```
+
+## Analyzing Financial Assets by Education level 
+
+```{r}
+financial_assets_education <- bind_rows(`No High School Diploma` = prepare_plot_data(finAssetsNoHsDp), `High School Diploma` = prepare_plot_data(finAssetsHsDp), `Some College` = prepare_plot_data(finAssetsSmCllg), `College Degree` = prepare_plot_data(finAssetsCllgDg), .id = "Education")
+
+plot_group_trend(financial_assets_education, "Financial Assets Over Time by Education Level", "Financial Assets", "Education Level")
+```
+
+## Analyzing Liabilities by Education level 
+
+```{r}
+liabilities_education <- bind_rows(`No High School Diploma` = prepare_plot_data(liabNoHsDp), `High School Diploma` = prepare_plot_data(liabHsDp), `Some College` = prepare_plot_data(liabSmCllg), `College Degree` = prepare_plot_data(liabCllgDg), .id = "Education")
+
+plot_group_trend(liabilities_education, "Liabilities Over Time by Education Level", "Liabilities", "Education Level")
+```

@@ -138,7 +138,7 @@ retrieveRaceVsNetworth <- function (race) {
     
     ntWrthTbl <- renameColumn(ntWrthTbl,"x", "Net Worth")
     ntWrthTbl <- renameColumn(ntWrthTbl, "Category", "Race")
-    
+# these were commented out by siya because there are inconsistencies in column naming    
     
     return(raceNtWrthTbl)
     
@@ -185,7 +185,7 @@ retrieveRaceVsDebt <- function (race) {
     raceDebtTbl <- raceDebtTbl[(order(raceDebtTbl$Year, decreasing = TRUE)), ]
     
     raceDebtTbl <- renameColumn(raceDebtTbl, "Category", "Race")
-    raceDebtTbl <- renameColumn(raceDebtTbl, "Value", "Debt")
+    raceDebtTbl <- renameColumn(raceDebtTbl, "Value", "x")      # chnaged from debt to x 
     
     return (raceDebtTbl)
     
@@ -207,7 +207,7 @@ retrieveRaceVsRetrMntAccWorth <- function (race) {
     raceRtrmAccTbl <- raceRtrmAccTbl[(order(raceRtrmAccTbl$Year, decreasing = TRUE)), ]
     
     raceRtrmAccTbl <- renameColumn(raceRtrmAccTbl, "Category", "Race")
-    raceRtrmAccTbl <- renameColumn(raceRtrmAccTbl, "Value", "Retirement Account Value")
+    raceRtrmAccTbl <- renameColumn(raceRtrmAccTbl, "Value", "x")
     
     return (raceRtrmAccTbl)
     

@@ -44,7 +44,6 @@ netWorthAvgBlack <- retrieveRaceVsNetworth("Black")
 netWorthAvgWhite <- retrieveRaceVsNetworth("White")
 netWorthAvgOther <- retrieveRaceVsNetworth("Other")
 
-View(netWorthAvgHispanic)
 
 
 # Retirement Account Value between Race - Reported every 3 years since 1989 based on SCF.
