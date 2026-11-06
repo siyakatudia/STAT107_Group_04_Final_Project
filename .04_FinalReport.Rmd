@@ -1,0 +1,80 @@
+---
+title: "Final Report"
+author: "Diego R, Siya K, Mateo S"
+date: "2026-11-04"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Abstract
+
+Give a title to your project. In an abstract of 200 words or less, describe what is the main question you aim to answer, and a brief summary of your current results.
+
+Our team's research question aims to determine a general relationship between educational accessibility and the racial wealth gap in recent years. Has the racial wealth gap experienced improvement over the past decades? 5 Decades? Century? Can this improvement or widening be attested to the access and opportunity that people of different races have to education? (Elementery, Middle, High, Undergraduate and graduate school, PhD programs, etc.) Our current data does not answer this question yet, but provides an anchor
+into what we should expect when continuing to look for more data to come up with a definitive conclusion.
+
+ - Data visualization currently shows that there is a significant financial wealth gap, with people who are categorized as White consistently earning more than any other race. This was viewed by comparing Net Worth and Racial Categories in both data sets separately, then comparing visually. 
+
+
+## Introduction
+
+The basis of what we are attempting to research is to determine the cause and potential improvement of the racial wealth gap throughout the United States. Specifically, we want to determine if there is any relationship between the racial wealth gap and educational accessibility throughout recent years.
+
+We believe conducting research into this topic will assist in determining future decisions regarding educational needs and allocation of government spending to potentially provide assistance to those in a lower income bracket to have a better opportunity to get the education they need for themselves and, if in families, their children.
+
+As of now, we are constructing boxplots and planning to use single and multiple linear regression and scatterplots to compare variables to each other and determine just how big the scale of the racial wealth gap is when educational accesibility is involved as an explanatory variable.
+
+
+## Executive Summary
+
+in bullet points ( 3 to 5), summarize core conclusions and findings of analysis thus far
+
+(Data processing and visualization must be complete to answer) \<-
+  - Data visualization shows the general wealth gap between the different racial categories, with White people earning more over the years observed
+  - Both data sets show the wealth gap through overall net worth between races, and can the graph can be adjusted to compare racial categories to other financial factors
+- More data will be needed to make an accurate statement about whether or not educational access is a factor to consider when
+  it comes to the racial wealth gap.
+
+## Data
+
+What is the data available for performing the analysis? Where did you retrieve these data from? What are the variables and number of observations available? What steps where performed to clean the data? If the data is obtained via randomized simulations, clarify the data generating procedure.
+
+The data we are using comes from the United States Federal Reserve Board, downloaded from the offical website at https://www.federalreserve.gov/releases/z1/dataviz/dfa/index.html? (DFA) and https://www.federalreserve.gov/econres/scfindex.htm? (SCF). The DFA data set contains information from the Distributional Financial Accounts, tracked by the Federal Reserve. The SCF data set contains information from the Survey of Consumer Finances, collected by the Federal Reserve. The downloadable file for both are folders containing multiple data sets. The SCF folder contains 31 separate files and the DFA folder contains 27 separate files. As part of our projet, we will be loading singluar files into the workspace as needed to view the data. 
+
+Variables have been constructed with the data that has been provided thus far. Our leading factors for determining a racial wealth gap include Net worth, Debt, Retirement Account(s) Value, Liabilities, and Financial Assets. We then divided this up into each race (Hispanic, White, Black, and Other) to then, in the future, continue analyzing such trends throughout these variables. Similarly, we use the same factors to identify a wealth gap in educational levels too. These educational levels are divided into No High School Diploma, High School Diploma, Some College, and College Degree, as according to both the DFA and SCF. These variables are meant to give us an expectation of what we will find once we find deeper relationships between race and educational accesibility.
+
+
+## Visualization
+
+Provide preliminary visualizations in the form of histograms, density plots, scatter plots, box-plots, and numerical summaries of the data, depending on the type of analysis. What do these visualizations suggest about the hypothesis, model or simulation you are aiming to perform? If you aim to generate further data visualizations, describe them here.
+
+For the current visualizations, we compared racial categories and net worth, as well as income before taxes. Using a boxplot, we could see that throughout the years analyzed, white people earned more than any other race. Though this is just a view of net worth compared to race, we can infer that there is a consistent racial wealth gap. For the next steps of our project, we can compare other financial categories to race, like debts and assets. Other future plans include making graphs to view the levels of education achieved by the racial categories we are examining to view how educational accessibility in the past could have contributed to the wealth gap.  
+
+(Data processing and visualization must be complete to answer) \<-
+
+## Analysis
+
+Provide some preliminary plans of what analysis you aim to complete. Mention models, tests, procedures, and some ideas of what expected outcomes you hope to find
+
+ - For the data visualization, we plan to compare the data more clearly using different types of graphs, such as a histogram or linear plots. We plan to use different values to measure wealth and compare them between races. we also plan on comparing specific years to each other to inspect the wealth gap closer. For the second part of the project, once the data has been processed and cleaned, we will include graphs of educational levels between race categories. As well as use graphs to view current accessibility of higher education to assist in determining future decisions.
+
+- As of now, the data processing functions can use work. For the most part they function under strict conditions, but are working to
+loosening those restrictions to then be able to work with our given datasets freely. More data is required to come to an accurate conclusion of our research question.
+
+
+## Summary of Individual Contributions
+
+Siya:
+
+Diego:
+  - Completed processing functions
+  - Declared variables for data processing into 02_Data_Processing.Rmd (not imported into .02_Data_Processing.Rmd)
+
+Mateo: 
+  - Worked on the data visualization
+  - Wrote parts of the README.txt and the FinalReport.Rmd files 

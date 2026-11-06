@@ -3,6 +3,7 @@ title: "Data Cleaning and Preperation"
 author: "Siya Katudia"
 output: html_document
 ---
+
 ```{r setup, message=FALSE, warning=FALSE}
 library(tidyverse)
 
@@ -10,7 +11,7 @@ library(tidyverse)
 source("R/01_funct_DataCleaning.R")
 ```
 
-# Importing the SCF datasets 
+# Importing the SCF datasets
 
 ```{r}
 scf_have <- read.csv("Data/Raw/SCF/interactive_bulletin_charts_racecl4_have.csv")
@@ -20,8 +21,7 @@ scf_mean <- read_csv("Data/Raw/SCF/interactive_bulletin_charts_racecl4_mean.csv"
 scf_median <- read_csv("Data/Raw/SCF/interactive_bulletin_charts_racecl4_median.csv")
 ```
 
-
-#Importing the dfa datasets 
+#Importing the dfa datasets
 
 ```{r}
 dfa_levels <- read_csv("Data/Raw/DFA/dfa-race-levels.csv")
@@ -33,25 +33,27 @@ dfa_shares <- read_csv("Data/Raw/DFA/dfa-race-shares.csv")
 dfa_shares_detail <- read_csv("Data/Raw/DFA/dfa-race-shares-detail.csv")
 ```
 
+# Understanding the datasets
 
-# Understanding the datasets 
+#examining scf datasets
 
-#examining scf datasets 
 ```{r}
 glimpse(scf_have)
 glimpse(scf_mean)
 glimpse(scf_median)
 
 ```
-#checking the dimensions 
+
+#checking the dimensions
+
 ```{r}
 dim(scf_have)
 dim(scf_mean)
 dim(scf_median)
 ```
 
+#examining dfa datasets
 
-#examining dfa datasets 
 ```{r}
 glimpse(dfa_levels)
 glimpse(dfa_levels_detail)
@@ -59,7 +61,9 @@ glimpse(dfa_shares)
 glimpse(dfa_shares_detail)
 
 ```
-#checking the dimensions 
+
+#checking the dimensions
+
 ```{r}
 dim(dfa_levels)
 dim(dfa_levels_detail)
@@ -68,21 +72,20 @@ dim(dfa_shares_detail)
 
 ```
 
+#checking for missing values and duplicates
 
-#checking for missing values and duplicates 
 ```{r}
 all_datasets <- list(scf_have = scf_have, scf_mean = scf_mean, scf_median = scf_median, dfa_levels = dfa_levels, dfa_levels_detail = dfa_levels_detail, dfa_shares = dfa_shares, dfa_shares_detail = dfa_shares_detail)
 
 ```
 
+#checking for missing values and duplicates
 
-#checking for missing values and duplicates 
 ```{r}
 lapply(all_datasets, check_missing)
 
 
 ```
-
 
 ```{r}
 check_duplicates(scf_have, c("year", "Category"))
@@ -99,8 +102,8 @@ check_duplicates(dfa_shares_detail, c("Date", "Category"))
 lapply(all_datasets, check_categories)
 ```
 
+# checking the years and dates on the datasets
 
-# checking the years and dates on the datasets 
 ```{r}
 sort(unique(scf_have$year))
 sort(unique(scf_mean$year))
@@ -114,5 +117,3 @@ sort(unique(dfa_shares_detail$Date))
 
 
 ```
-
-

@@ -1,0 +1,43 @@
+---
+Guide to File Functions of the project:
+  1. Descriptions of files and their uses
+  2. Description of how to reproduce the results
+
+---
+
+Files:
+
+Data Folder
+  -> Raw Folder
+    -> DFA: Distributional Financial Accounts from enhanced financial research done by the United States Federal Reserve Board
+    -> SCF: Survey of Consumer Finances from economic research done by the United States Federal Reserve Board
+
+R Folder
+  -> 01_funct_DataCleaning.R: Functions required for .01_DataCleaning.Rmd
+  -> 02_funct_Plots.R: EMPTY (will contain functions required for .03_Data_Visualization.Rmd)
+
+00_requirements.R
+  -> Installs packages required for the analysis
+
+.01_DataCleaning.Rmd / .01_DataCleaning.html
+  -> 
+
+.02_Data_Processing.Rmd / .02Data_Processing.Rmd
+  -> 
+
+.03_Data_Visualization.Rmd
+  -> Code to view the data in graphs and analysis based on the information
+    -> Currently only set up to view the financial data to answer the first part of the question, will include the educational data either in the same document or a separate one in the future
+
+.04_FinalReport.Rmd 
+  -> Final Report including project topic, methodology, future steps, and the summary of individual contributions
+
+---
+
+Step-By-Step Instructions:
+
+
+(instructions for data visualization, to be put near the end)
+  1. Data must be loaded into the global environment in RStudio via the .01_DataCleaning.Rmd file
+  2. Load functions at the beginning of the file once in RStudio (will be placed into 02_funct_Plots.R after figuring out the technical issues)
+  3. Code will show data visualizations in the form of boxplots. These will compare Before Tax Income vs Race and Net Worth vs Race for the SCF data set. It will also contain Net Worth vs Race for the DFA data set.
