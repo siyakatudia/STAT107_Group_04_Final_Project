@@ -1,9 +1,9 @@
-----------------------------------------
+---
 Guide to File Functions of the project:
-  1. describe role of each file
-  2. describe how to reproduce results with step-by-step instructions
+  1. Descriptions of files and their uses
+  2. Description of how to reproduce the results
 
-----------------------------------------
+---
 
 Files:
 
@@ -14,7 +14,7 @@ Data Folder
 
 R Folder
   -> 01_funct_DataCleaning.R: Functions required for .01_DataCleaning.Rmd
-  -> 02_funct_Plots.R: EMPTY (will contain functions required for .03_Data_Visualization.Rmd
+  -> 02_funct_Plots.R: EMPTY (will contain functions required for .03_Data_Visualization.Rmd)
 
 00_requirements.R
   -> Installs packages required for the analysis
@@ -31,3 +31,13 @@ R Folder
 
 .04_FinalReport.Rmd 
   -> Final Report including project topic, methodology, future steps, and the summary of individual contributions
+
+---
+
+Step-By-Step Instructions:
+
+
+(instructions for data visualization, to be put near the end)
+  1. Data must be loaded into the global environment in RStudio via the .01_DataCleaning.Rmd file
+  2. Load functions at the beginning of the file once in RStudio (will be placed into 02_funct_Plots.R after figuring out the technical issues)
+  3. Code will show data visualizations in the form of boxplots. These will compare Before Tax Income vs Race and Net Worth vs Race for the SCF data set. It will also contain Net Worth vs Race for the DFA data set.
