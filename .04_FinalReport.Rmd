@@ -1,6 +1,6 @@
 ---
 title: "Final Report"
-author: "Diego R, Siya, Mateo"
+author: "Diego R, Siya K, Mateo S"
 date: "2026-11-04"
 output:
   pdf_document: default
