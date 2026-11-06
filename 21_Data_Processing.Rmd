@@ -11,22 +11,48 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Purpose
+# Processing code
 
-The purpose of the following code is to process the cleaned data (by Siya and Mateo) into relevant data frames that can be used to help us answer our research question. Each R chunk is named by what the chunk's task is either by the header or inside the R chunk's header.
+The purpose of the following code is to process the cleaned data (by Siya and Mateo) into relevant data frames that can be used to help us answer our research question. Each R chunk is named by what the chunk's task is by header.
 
-```{r CDI, echo = FALSE}
+### Purpose
 
-# This chunk will not show in the pdf file.
+The processed code shall be relevant towards the driving research question our team has made:
 
-# Cleaned data sets shall be imported in this chunk. 
+Is there a racial wealth gap? If so, can the racial wealth gap be explained by educational accessibility?
 
-# IMPORT BEFORE STARTING DATA PROCESSING (u cant start any without it lmao)
+```{r Fuctions Import}
+
+# Import reusable functions here from R file here:
+
+source("R/Untitled1.R")
 
 
 ```
 
-## Processing Code
+### Defining the Racial Wealth Gap
+
+Five variables are used to determine wealth within race. Median Net Worth, Retirement Account Value, Total Debt, Liabilities, and Financial Assets. Each of the 5 will be defined for each race which include Hispanic, Asian, Black, White, and Other \<- (Every race that doesn't fall in the other 4).
+
+```{r}
+
+
+
+```
+
+### Defining Wealth by Education
+
+```{r}
+
+
+```
+
+### Tying the two together
+
+```{r}
+
+
+```
 
 ```{r}
 
@@ -48,4 +74,22 @@ The purpose of the following code is to process the cleaned data (by Siya and Ma
 #'        a. How does accessibility differ from state to state within the U.S? 
 #'        b. Can other factors in different states such as economy and political standing 
 #'          shape such opportunities?
+#'          
+#'          
+#' The racial wealth gap will be defined by races vs median net worth, retirement account value
+#' , total debt, and financial assets
+
+#' variable naming convention will go as:
+#' 
+#' whiteMeanNetWorth
+#' hispanicMeanNetWorth
+#' blackMeanNetWorth
+#' asianMeanNetWorth
+#' otherMeanNetWorth
+#' 
+#' whiteMeanNWVec
+#' hispanicMeanNWVec
+#' blackMeanNWVec
+#' asianMeanNWVec
+#' otherMeanNWVe
 ```
