@@ -78,3 +78,6 @@ Diego:
 Mateo: 
   - Worked on the data visualization
   - Wrote parts of the README.txt and the FinalReport.Rmd files 
+
+GitHub Repository Link:
+https://github.com/siyakatudia/STAT107_DA3_Katudia_Siya_MyFirstRepository
