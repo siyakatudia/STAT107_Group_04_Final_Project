@@ -15,22 +15,20 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Give a title to your project. In an abstract of 200 words or less, describe what is the main question you aim to answer, and a brief summary of your current results.
 
-Our team's research question aims to determine a general relationship between educational accessibility and the racial wealth gap in recent years. Has the racial wealth gap experienced improvement over the past decades? 5 Decades? Century? Can this improvement or widening be attested to the access and opportunity that people of different races have to education? (Elementery, Middle, High, Undergraduate and graduate school, PhD programs, etc.) Our current findings show that...
+Our team's research question aims to determine a general relationship between educational accessibility and the racial wealth gap in recent years. Has the racial wealth gap experienced improvement over the past decades? 5 Decades? Century? Can this improvement or widening be attested to the access and opportunity that people of different races have to education? (Elementery, Middle, High, Undergraduate and graduate school, PhD programs, etc.) Our current data does not answer this question yet, but provides an anchor
+into what we should expect when continuing to look for more data to come up with a definitive conclusion.
 
--\> (Data processing and visualization must be complete to summarize current results) \<-
  - Data visualization currently shows that there is a significant financial wealth gap, with people who are categorized as White consistently earning more than any other race. This was viewed by comparing Net Worth and Racial Categories in both data sets separately, then comparing visually. 
 
-(This is a preliminary abstract. Im very sure that this can be improved on alot)
 
 ## Introduction
-
-What is the central question that motivates your analysis? Who may this analysis benefit? Are you trying to train a model, test a hypothesis, classify objects apart? Why? This has to be written with proper grammar and syntax: sentences, paragraphs, and a narrative structure.
 
 The basis of what we are attempting to research is to determine the cause and potential improvement of the racial wealth gap throughout the United States. Specifically, we want to determine if there is any relationship between the racial wealth gap and educational accessibility throughout recent years.
 
 We believe conducting research into this topic will assist in determining future decisions regarding educational needs and allocation of government spending to potentially provide assistance to those in a lower income bracket to have a better opportunity to get the education they need for themselves and, if in families, their children.
 
-(Also preliminary)
+As of now, we are constructing boxplots and planning to use single and multiple linear regression and scatterplots to compare variables to each other and determine just how big the scale of the racial wealth gap is when educational accesibility is involved as an explanatory variable.
+
 
 ## Executive Summary
 
@@ -39,6 +37,8 @@ in bullet points ( 3 to 5), summarize core conclusions and findings of analysis 
 (Data processing and visualization must be complete to answer) \<-
   - Data visualization shows the general wealth gap between the different racial categories, with White people earning more over the years observed
   - Both data sets show the wealth gap through overall net worth between races, and can the graph can be adjusted to compare racial categories to other financial factors
+- More data will be needed to make an accurate statement about whether or not educational access is a factor to consider when
+  it comes to the racial wealth gap.
 
 ## Data
 
@@ -46,7 +46,8 @@ What is the data available for performing the analysis? Where did you retrieve t
 
 The data we are using comes from the United States Federal Reserve Board, downloaded from the offical website at https://www.federalreserve.gov/releases/z1/dataviz/dfa/index.html? (DFA) and https://www.federalreserve.gov/econres/scfindex.htm? (SCF). The DFA data set contains information from the Distributional Financial Accounts, tracked by the Federal Reserve. The SCF data set contains information from the Survey of Consumer Finances, collected by the Federal Reserve. The downloadable file for both are folders containing multiple data sets. The SCF folder contains 31 separate files and the DFA folder contains 27 separate files. As part of our projet, we will be loading singluar files into the workspace as needed to view the data. 
 
--> Need to add the steps performed to clean the data <- 
+Variables have been constructed with the data that has been provided thus far. Our leading factors for determining a racial wealth gap include Net worth, Debt, Retirement Account(s) Value, Liabilities, and Financial Assets. We then divided this up into each race (Hispanic, White, Black, and Other) to then, in the future, continue analyzing such trends throughout these variables. Similarly, we use the same factors to identify a wealth gap in educational levels too. These educational levels are divided into No High School Diploma, High School Diploma, Some College, and College Degree, as according to both the DFA and SCF. These variables are meant to give us an expectation of what we will find once we find deeper relationships between race and educational accesibility.
+
 
 ## Visualization
 
@@ -62,13 +63,17 @@ Provide some preliminary plans of what analysis you aim to complete. Mention mod
 
  - For the data visualization, we plan to compare the data more clearly using different types of graphs, such as a histogram or linear plots. We plan to use different values to measure wealth and compare them between races. we also plan on comparing specific years to each other to inspect the wealth gap closer. For the second part of the project, once the data has been processed and cleaned, we will include graphs of educational levels between race categories. As well as use graphs to view current accessibility of higher education to assist in determining future decisions.
 
-(Data processing and visualization must be complete to answer) \<-
+- As of now, the data processing functions can use work. For the most part they function under strict conditions, but are working to
+loosening those restrictions to then be able to work with our given datasets freely. More data is required to come to an accurate conclusion of our research question.
+
 
 ## Summary of Individual Contributions
 
 Siya:
 
 Diego:
+  - Completed processing functions
+  - Declared variables for data processing into 02_Data_Processing.Rmd (not imported into .02_Data_Processing.Rmd)
 
 Mateo: 
   - Worked on the data visualization
