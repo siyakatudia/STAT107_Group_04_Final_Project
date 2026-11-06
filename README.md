@@ -4,6 +4,6 @@ This is the GitHub repository created for the course STAT 107 taught by Prof. Jo
 
 This is the repository created for the final project for group 4.
 Members:
-Siya Katudia
-Mateo Sandoval
-Diego Regules
+Siya Katudia,
+Mateo Sandoval,
+Diego Regules,
