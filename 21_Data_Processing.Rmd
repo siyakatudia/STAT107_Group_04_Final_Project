@@ -1,0 +1,166 @@
+---
+title: "Data Processing Code and Functions"
+author: "Diego R"
+date: "2026-11-04"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+
+load("Data/Processed/12_DataSaving.RData")
+```
+
+# Processing code
+
+The purpose of the following code is to process the cleaned data (by Siya and Mateo) into relevant data frames that can be used to help us answer our research question. Each R chunk is named by what the chunk's task is by header.
+
+### Purpose
+
+The processed code shall be relevant towards the driving research question our team has made:
+
+Is there a racial wealth gap? If so, can the racial wealth gap be explained by educational accessibility?
+
+```{r Fuctions Import}
+
+# Import reusable functions here from R file here:
+
+source(".02_funct_Processing.R")
+
+
+```
+
+### Defining the Racial Wealth Gap
+
+Five variables are used to determine wealth within race. Mean Net Worth, Retirement Account Value, Total Debt, Liabilities, and Financial Assets. Each of the 5 will be defined for each race which include Hispanic, Asian, Black, White, and Other \<- (Every race that doesn't fall in the other 4).
+
+```{r}
+# Networth between Race - Reported Yearly in Quarters since 1989 based on DFA. 
+#                         Quarters averaged into years. Dropped 1989 and 2026 due to
+#                         incomplete quarter report.                        
+
+netWorthAvgHispanic <- retrieveRaceVsNetworth("Hispanic")
+netWorthAvgBlack <- retrieveRaceVsNetworth("Black")
+netWorthAvgWhite <- retrieveRaceVsNetworth("White")
+netWorthAvgOther <- retrieveRaceVsNetworth("Other")
+
+#View(netWorthAvgHispanic)
+
+
+# Retirement Account Value between Race - Reported every 3 years since 1989 based on SCF.
+rtrmAccValHispanic <- retrieveRaceVsRetrMntAccWorth("Hispanic")
+rtrmAccValueBlack <- retrieveRaceVsRetrMntAccWorth("Black")
+rtrmAccValueWhite <- retrieveRaceVsRetrMntAccWorth("White")
+rtrmAccValueOther <- retrieveRaceVsRetrMntAccWorth("Other")
+
+
+# Total Debt between Race - Reported every 3 years since 1989 based on SCF.
+
+totDebtHispanic <- retrieveRaceVsDebt("Hispanic")
+totDebtBlack <- retrieveRaceVsDebt("Black")
+totDebtWhite <- retrieveRaceVsDebt("White")
+totDebtOther <- retrieveRaceVsDebt("Other")
+
+
+# Liabilities (reponsiblity to pay) between Race - Reported Yearly in Quarters since 
+#                                                  1989 based on DFA. 
+#                                                  Quarters averaged into years. 
+#                                                  Dropped 1989 and 2026 due to
+#                                                  incomplete quarter report.  
+
+liabHispanic <- retrieveRaceVsLiabilities("Hispanic")
+liabBlack <- retrieveRaceVsLiabilities("Black")
+liabWhite <- retrieveRaceVsLiabilities("White")
+liabOther <- retrieveRaceVsLiabilities("Other")
+
+
+# Financial Assets between Race - Reported Yearly in Quarters since 1989 based on DFA.
+#                                 Quarters averaged into years. Dropped 1989 and 2026
+#                                 due to incomplete quarter report. 
+
+finAssetsHispanic <- retrieveRaceVsFinancialAssets("Hispanic")
+finAssetsBlack <- retrieveRaceVsFinancialAssets("Black")
+finAssetsWhite <- retrieveRaceVsFinancialAssets("White")
+finAssetsOther <- retrieveRaceVsFinancialAssets("Other")
+
+
+```
+
+### Defining Wealth by Education
+
+Next is to define wealth by education levels. Our research question wants to explore the possibility of education being one of the causes of the racial wealth gap. As of now, there is no clear way to tie race to our given education level and wealth data, as making such assumptions without the proper data to back the claims would be inaccurate. This data will be created from the main DFA Education set as an anchor to confirm/relate findings once we obtain clear data tying race, education level, and wealth together.
+
+```{r}
+# Networth between Education Levels - Reported Yearly in Quarters since 1989 based on DFA. 
+#                                     Quarters averaged into years. Dropped 1989 and 2026 due
+#                                     to incomplete quarter report.  
+
+netWorthNoHsDp <- retrieveEduVsOf5Args("No High School Diploma", "Net Worth")
+netWorthHsDp <- retrieveEduVsOf5Args("High School Diploma", "Net Worth")
+netWorthSmCllg <- retrieveEduVsOf5Args("Some College", "Net Worth")
+netWorthCllgDg <- retrieveEduVsOf5Args("College Degree", "Net Worth")
+
+# Retirement Account Value between Education levels - Reported every 3 years since 1989 based on SCF.
+
+rtrmAccValNoHsDp <- retrieveEduVsOf5Args("No High School Diploma", "Retirement Account Value")
+rtrmAccValHsDp <- retrieveEduVsOf5Args("High School Diploma", "Retirement Account Value")
+rtrmAccValSmCllg <- retrieveEduVsOf5Args("Some College", "Retirement Account Value")
+rtrmAccValCllgDg <- retrieveEduVsOf5Args("College Degree", "Retirement Account Value")
+
+# Total Debt between Education Level - Reported every 3 years since 1989 based on SCF.
+
+totDebtNoHsDp <- retrieveEduVsOf5Args("No High School Diploma", "Debt")
+totDebtHsDp <- retrieveEduVsOf5Args("High School Diploma", "Debt")
+totDebtSmCllg <- retrieveEduVsOf5Args("Some College", "Debt")
+totDebtCllgDg <- retrieveEduVsOf5Args("College Degree", "Debt")
+
+# Liabilities (reponsiblity to pay) between Race - Reported Yearly in Quarters since 
+#                                                  1989 based on DFA. 
+#                                                  Quarters averaged into years. 
+#                                                  Dropped 1989 and 2026 due to
+#                                                  incomplete quarter report.  
+
+liabNoHsDp <- retrieveEduVsOf5Args("No High School Diploma", "Liabilities")
+liabHsDp <- retrieveEduVsOf5Args("High School Diploma", "Liabilities")
+liabSmCllg <- retrieveEduVsOf5Args("Some College", "Liabilities")
+liabCllgDg <- retrieveEduVsOf5Args("College Degree", "Liabilities")
+
+# Financial Assets between Education Level- Reported Yearly in Quarters since 1989 based on 
+#                                           DFA. Quarters averaged into years. Dropped 1989 and #                                           2026 due to incomplete quarter report. 
+
+finAssetsNoHsDp <- retrieveEduVsOf5Args("No High School Diploma", "Financial Assets")
+finAssetsHsDp <- retrieveEduVsOf5Args("High School Diploma", "Financial Assets")
+finAssetsSmCllg <- retrieveEduVsOf5Args("Some College", "Financial Assets")
+finAssetsCllgDg <- retrieveEduVsOf5Args("College Degree", "Financial Assets")
+
+
+
+```
+
+saving the processed data into a new environment
+
+```{r}
+save(netWorthAvgHispanic, netWorthAvgBlack, netWorthAvgWhite, netWorthAvgOther,
+     rtrmAccValHispanic,rtrmAccValueBlack, rtrmAccValueWhite, rtrmAccValueOther, 
+     totDebtHispanic, totDebtBlack, totDebtWhite, totDebtOther, 
+     liabHispanic, liabBlack, liabWhite, liabOther,
+     finAssetsHispanic, finAssetsBlack, finAssetsWhite, finAssetsOther,
+     
+     netWorthNoHsDp, netWorthHsDp, netWorthSmCllg, netWorthCllgDg, 
+     rtrmAccValNoHsDp, rtrmAccValHsDp, rtrmAccValSmCllg, rtrmAccValCllgDg,
+     totDebtNoHsDp, totDebtHsDp, totDebtSmCllg, totDebtCllgDg, 
+     liabNoHsDp, liabHsDp, liabSmCllg, liabCllgDg, 
+     finAssetsNoHsDp, finAssetsHsDp, finAssetsSmCllg, finAssetsCllgDg,
+     
+     file = "Data/Processed/22_DataSaving.RData")
+
+
+
+
+
+
+```

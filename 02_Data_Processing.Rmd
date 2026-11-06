@@ -25,7 +25,7 @@ Is there a racial wealth gap? If so, can the racial wealth gap be explained by e
 
 # Import reusable functions here from R file here:
 
-source("03_funct_Processing.R")
+source(".02_funct_Processing.R")
 
 
 ```
@@ -43,6 +43,8 @@ netWorthAvgHispanic <- retrieveRaceVsNetworth("Hispanic")
 netWorthAvgBlack <- retrieveRaceVsNetworth("Black")
 netWorthAvgWhite <- retrieveRaceVsNetworth("White")
 netWorthAvgOther <- retrieveRaceVsNetworth("Other")
+
+View(netWorthAvgHispanic)
 
 
 # Retirement Account Value between Race - Reported every 3 years since 1989 based on SCF.
@@ -84,7 +86,7 @@ finAssetsOther <- retrieveRaceVsFinancialAssets("Other")
 
 ```
 
-### Defining Wealth by Education 
+### Defining Wealth by Education
 
 Next is to define wealth by education levels. Our research question wants to explore the possibility of education being one of the causes of the racial wealth gap. As of now, there is no clear way to tie race to our given education level and wealth data, as making such assumptions without the proper data to back the claims would be inaccurate. This data will be created from the main DFA Education set as an anchor to confirm/relate findings once we obtain clear data tying race, education level, and wealth together.
 

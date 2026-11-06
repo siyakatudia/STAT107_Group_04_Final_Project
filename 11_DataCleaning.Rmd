@@ -19,6 +19,9 @@ scf_have <- read.csv("Data/Raw/SCF/interactive_bulletin_charts_racecl4_have.csv"
 scf_mean <- read_csv("Data/Raw/SCF/interactive_bulletin_charts_racecl4_mean.csv")
 
 scf_median <- read_csv("Data/Raw/SCF/interactive_bulletin_charts_racecl4_median.csv")
+
+scf_education_mean <- read.csv("Data/Raw/SCF/interactive_bulletin_charts_edcl_mean.csv")
+
 ```
 
 #Importing the dfa datasets
@@ -31,6 +34,8 @@ dfa_levels_detail <- read_csv("Data/Raw/DFA/dfa-race-levels-detail.csv")
 dfa_shares <- read_csv("Data/Raw/DFA/dfa-race-shares.csv")
 
 dfa_shares_detail <- read_csv("Data/Raw/DFA/dfa-race-shares-detail.csv")
+
+dfa_education_detail <- read.csv("Data/Raw/DFA/dfa-education-levels-detail.csv")
 ```
 
 # Understanding the datasets
@@ -75,7 +80,7 @@ dim(dfa_shares_detail)
 #checking for missing values and duplicates
 
 ```{r}
-all_datasets <- list(scf_have = scf_have, scf_mean = scf_mean, scf_median = scf_median, dfa_levels = dfa_levels, dfa_levels_detail = dfa_levels_detail, dfa_shares = dfa_shares, dfa_shares_detail = dfa_shares_detail)
+all_datasets <- list(scf_have = scf_have, scf_mean = scf_mean, scf_median = scf_median, dfa_levels = dfa_levels, dfa_levels_detail = dfa_levels_detail, dfa_shares = dfa_shares, dfa_shares_detail = dfa_shares_detail, scf_education_mean = scf_education_mean, dfa_education_detail = dfa_education_detail)
 
 ```
 
@@ -116,4 +121,10 @@ sort(unique(dfa_shares_detail$Date))
 
 
 
+```
+
+Saving all the cleaned data sets
+
+```{r}
+save(scf_have, scf_mean, scf_median, scf_education_detail, dfa_levels, dfa_levels_detail, dfa_shares, dfa_shares_detail, dfa_education_detail, file = "Data/Processed/12_DataSaving.RData")
 ```
