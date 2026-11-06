@@ -60,6 +60,16 @@ For the current visualizations, we compared racial categories and net worth, as 
 
 Provide some preliminary plans of what analysis you aim to complete. Mention models, tests, procedures, and some ideas of what expected outcomes you hope to find
 
-
+ - For the data visualization, we plan to compare the data more clearly using different types of graphs, such as a histogram or linear plots. We plan to use different values to measure wealth and compare them between races. we also plan on comparing specific years to each other to inspect the wealth gap closer. For the second part of the project, once the data has been processed and cleaned, we will include graphs of educational levels between race categories. As well as use graphs to view current accessibility of higher education to assist in determining future decisions.
 
 (Data processing and visualization must be complete to answer) \<-
+
+## Summary of Individual Contributions
+
+Siya:
+
+Diego:
+
+Mateo: 
+  - Worked on the data visualization
+  - Wrote parts of the README.txt and the FinalReport.Rmd files 
