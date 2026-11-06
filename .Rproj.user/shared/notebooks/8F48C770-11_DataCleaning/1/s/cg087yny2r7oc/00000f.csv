@@ -1,5 +1,0 @@
-"0","scf_have <- read.csv(""Data/Raw/SCF/interactive_bulletin_charts_racecl4_have.csv"")"
-"0",""
-"0","scf_mean <- read_csv(""Data/Raw/SCF/interactive_bulletin_charts_racecl4_mean.csv"")"
-"0",""
-"0","scf_median <- read_csv(""Data/Raw/SCF/interactive_bulletin_charts_racecl4_median.csv"")"
