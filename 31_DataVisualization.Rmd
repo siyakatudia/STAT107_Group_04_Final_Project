@@ -107,7 +107,7 @@ plot_group_trend(networth_data, "Net Worth Over Time by Race", "Net Worth")
 plot_group_boxplot(networth_data, "Distribution of Net Worth by Race", "Net Worth")
 ```
 
-## Analyzing debt by race 
+## Analyzing debt by race
 
 ```{r}
 debt_data <- bind_rows( Black = prepare_plot_data(totDebtBlack), Hispanic = prepare_plot_data(totDebtHispanic), White = prepare_plot_data(totDebtWhite), Other = prepare_plot_data(totDebtOther), .id = "Race")
@@ -117,7 +117,7 @@ plot_group_trend(networth_data, "Debt Over Time by Race", "Debt")
 plot_group_boxplot(networth_data, "Distribution of Debt by Race", "Debt")
 ```
 
-## Analyzing Retirement Account by race 
+## Analyzing Retirement Account by race
 
 ```{r}
 retirement_data <- bind_rows(Black = prepare_plot_data(rtrmAccValueBlack), Hispanic = prepare_plot_data(rtrmAccValHispanic), White = prepare_plot_data(rtrmAccValueWhite), Other = prepare_plot_data(rtrmAccValueOther), .id = "Race")
@@ -137,7 +137,7 @@ plot_group_trend(networth_data, "Financial Assets Value Over Time by Race", "Fin
 plot_group_boxplot(networth_data, "Distribution of Financial Assets by Race", "Financial Assets")
 ```
 
-##  
+## 
 
 ## Analyzing Liabilities by race
 
@@ -149,7 +149,7 @@ plot_group_trend(networth_data, "Liabilities Value Over Time by Race", "Liabilit
 plot_group_boxplot(networth_data, "Distribution of Liabilities by Race", "Liabilities")
 ```
 
-## Analyzing Net Worth by Education level 
+## Analyzing Net Worth by Education level
 
 ```{r}
 education_networth <- bind_rows(`No High School Diploma` = prepare_plot_data(netWorthNoHsDp),`High School Diploma` = prepare_plot_data(netWorthHsDp), `Some College` = prepare_plot_data(netWorthSmCllg), `College Degree` = prepare_plot_data(netWorthCllgDg), .id = "Education")
@@ -161,7 +161,7 @@ plot_group_trend( education_networth, "Net Worth Over Time by Education Level", 
 plot_group_boxplot( education_networth, "Distribution of Net Worth by Education Level","Net Worth", "Education Level")
 ```
 
-## Analyzing Retirement Account Value  by Education level 
+## Analyzing Retirement Account Value by Education level
 
 ```{r}
 retirement_education <- bind_rows(`No High School Diploma` = prepare_plot_data(rtrmAccValNoHsDp), `High School Diploma` = prepare_plot_data(rtrmAccValHsDp), `Some College` = prepare_plot_data(rtrmAccValSmCllg), `College Degree` = prepare_plot_data(rtrmAccValCllgDg), .id = "Education")
@@ -169,7 +169,7 @@ retirement_education <- bind_rows(`No High School Diploma` = prepare_plot_data(r
 plot_group_trend(retirement_education, "Retirement Account Value Over Time by Education Level", "Retirement Account Value", "Education Level")
 ```
 
-## Analyzing Debt by Education level 
+## Analyzing Debt by Education level
 
 ```{r}
 debt_education <- bind_rows(`No High School Diploma` = prepare_plot_data(totDebtNoHsDp), `High School Diploma` = prepare_plot_data(totDebtHsDp), `Some College` = prepare_plot_data(totDebtSmCllg), `College Degree` = prepare_plot_data(totDebtCllgDg), .id = "Education")
@@ -177,7 +177,7 @@ debt_education <- bind_rows(`No High School Diploma` = prepare_plot_data(totDebt
 plot_group_trend(debt_education, "Debt Over Time by Education Level", "Debt", "Education Level")
 ```
 
-## Analyzing Financial Assets by Education level 
+## Analyzing Financial Assets by Education level
 
 ```{r}
 financial_assets_education <- bind_rows(`No High School Diploma` = prepare_plot_data(finAssetsNoHsDp), `High School Diploma` = prepare_plot_data(finAssetsHsDp), `Some College` = prepare_plot_data(finAssetsSmCllg), `College Degree` = prepare_plot_data(finAssetsCllgDg), .id = "Education")
@@ -185,7 +185,7 @@ financial_assets_education <- bind_rows(`No High School Diploma` = prepare_plot_
 plot_group_trend(financial_assets_education, "Financial Assets Over Time by Education Level", "Financial Assets", "Education Level")
 ```
 
-## Analyzing Liabilities by Education level 
+## Analyzing Liabilities by Education level
 
 ```{r}
 liabilities_education <- bind_rows(`No High School Diploma` = prepare_plot_data(liabNoHsDp), `High School Diploma` = prepare_plot_data(liabHsDp), `Some College` = prepare_plot_data(liabSmCllg), `College Degree` = prepare_plot_data(liabCllgDg), .id = "Education")

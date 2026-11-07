@@ -7,7 +7,12 @@ prepare_plot_data <- function(data) {
     value <- data$x
   } else if ("Race" %in% names(data)){
     group <- data$Race
-    value <- data$x
+    if ("Liabilities" %in% names(data)) {
+      value <- data$Liabilities
+    } else {
+      value <- data$x
+    }
+    
   } else if ("Education Level" %in% names(data)) {
     group <- data$`Education Level`
     

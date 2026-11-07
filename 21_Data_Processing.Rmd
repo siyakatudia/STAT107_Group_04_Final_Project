@@ -29,7 +29,7 @@ Is there a racial wealth gap? If so, can the racial wealth gap be explained by e
 
 # Import reusable functions here from R file here:
 
-source(".02_funct_Processing.R")
+source("03_funct_Processing.R")
 
 
 ```
