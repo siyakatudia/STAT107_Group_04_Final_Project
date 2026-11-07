@@ -1,5 +1,5 @@
 ---
-title: "The RAcial Wealth Gap in the United States"
+title: "The Racial Wealth Gap in the United States"
 author: "Diego R, Siya K, Mateo S"
 date: "2026-11-04"
 output:
