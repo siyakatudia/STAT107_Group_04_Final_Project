@@ -1,0 +1,53 @@
+---
+Guide to File Functions of the project:
+  1. Descriptions of files and their uses
+  2. Description of how to reproduce the results
+
+---
+
+The repository is organized into folders for raw data, proccessed data, R functions and analysis documents 
+Files:
+
+Data Folder
+  -> Raw Folder
+    -> DFA: Distributional Financial Accounts from enhanced financial research done by the United States Federal Reserve Board
+    -> SCF: Survey of Consumer Finances from economic research done by the United States Federal Reserve Board
+
+R Folder
+  This folder contains reusable R functions used throughout the project 
+  -> 01_funct_DataCleaning.R: Functions required for .01_DataCleaning.Rmd
+  -> 02_funct_Plots.R: Contains reuseable functions for for standardizing and generating plots 
+  -> 03_funct_Processing.R: Contains functions used to process the cleaned datasets and retrieve financial measure for specific racial and educational groups 
+  
+Main Projec files 
+00_requirements.R
+  -> Installs packages required for the analysis
+
+11_DataCleaning.Rmd 
+  -> Imports, examines and clean the original SCF and DFA datasets
+
+21_Data_Processing.Rmd 
+  -> Processes the cleaned datasets and creates the varaibles used for analysis 
+
+31_Data_Visualization.Rmd
+  -> Generates visualizations comparing financial measures 
+
+.04_FinalReport.Rmd 
+  -> Final Report including project topic, methodology, future steps, and the summary of individual contributions
+
+00.README.txt 
+  -> Provides an overview of the repository and instructions for reproducing the analysis 
+---
+
+Step-By-Step Instructions:
+  
+  1. Clone or download the github repository to your computer 
+  2. Open and Run 00_requirements.R
+  3. Open and Run 11_DataCleaning.Rmd to import, clean, and save the cleaned datastes in Data/Processed
+  4. Open and Run 21_Data_Processing.Rmd to load the clean datasets, source the processing functions and save the processed datasets into a new environment 
+  5. Open and Run 31_Data_Visualization.Rmd loads the prvious environment and creates plots 
+
+(instructions for data visualization, to be put near the end)
+  1. Data must be loaded into the global environment in RStudio via the .01_DataCleaning.Rmd file
+  2. Load functions at the beginning of the file once in RStudio (will be placed into 02_funct_Plots.R after figuring out the technical issues)
+  3. Code will show data visualizations in the form of boxplots. These will compare Before Tax Income vs Race and Net Worth vs Race for the SCF data set. It will also contain Net Worth vs Race for the DFA data set.
